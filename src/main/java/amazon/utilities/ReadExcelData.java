@@ -27,11 +27,7 @@ public class ReadExcelData extends Utility {
 			String testData = System.getProperty("user.dir");
 			Properties prop=new Properties();
 			prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\main\\java\\amazon\\Test\\config.properties");
-			//System.out.println(testData + prop.getProperty("TestdataPath"));
-			//System.out.println(prop.getProperty("TestdataPath"));
-			//fs = new FileInputStream(testData + prop.getProperty("TestdataPath"));
-			fs = new FileInputStream(testData + "\\src\\main\\java\\amazon\\utilities\\TestData.xlsx");
-			System.out.println("Hello");
+			fs = new FileInputStream(testData + "\\src\\test\\java\\testData\\TestData.xlsx");
 			wb = new XSSFWorkbook(fs);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -39,6 +35,11 @@ public class ReadExcelData extends Utility {
 		}
 	}
 	
+	/*
+	 * Description: Reusable function to Read an excel file
+	 * Created By: Sukanya 
+	 * Attribute:testCaseName - Test that needs to be fetched from excel that we need to run
+	 */
 
 	public void excelRead(String testCaseName) {
 		openExcel();

@@ -40,11 +40,12 @@ public class Utility {
 	/**
 	 * @author Sukanya
 	 * @throws MalformedURLException
-	 *Description-initiating driver 
+	 * Description-initiating driver
+	 * Attribute: report-class object of Report to generate extent report
 	 */
 	public void driverinit(Report extentReport) {
 		try {
-		prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\main\\java\\amazon\\Test\\global.properties");
+		prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\test\\java\\propertiesFile\\global.properties");
 		File appDir = new File("src");
 	    File app = new File(appDir, prop.getProperty("appName"));
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME,prop.getProperty("device"));
@@ -64,10 +65,11 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Loading property File
+	 * Attribute: Path: Set path to the global.properties file
 	 */
 	public Properties loadPropertyFile(String Path) {
 		try {
-			FileInputStream fis =new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\amazon\\Test\\global.properties");
+			FileInputStream fis =new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\propertiesFile\\global.properties");
 			
 				prop.load(fis);
 			} catch (IOException e) {
@@ -81,6 +83,9 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable Click action
+	 * Attribute: elementType- Element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 * 			  report- Class object of Report to generate extent report
 	 */
 	
 	public void clickElement(String elementType,String identifier,Report report) {
@@ -103,6 +108,10 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable sendkeys action
+	 *  Attribute: elementType- Element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 * 			  value- To enter text into any field
+	 * 			  report- Class object of Report to generate extent report
 	 */
 	public void sendKeysElement(String elementType,String identifier,String value,Report report) {
 		try {
@@ -130,6 +139,9 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable to get the text of the element
+	 * Attribute: elementType- Element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 * 			  report- Class object of Report to generate extent report
 	 */
 	
 	public String getText(String elementType,String identifier,Report report)
@@ -153,9 +165,12 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable method to wait till the element is discovered
+	 * Attribute: elementType- Element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 * 			  report- Class object of Report to generate extent report
 	 */
 
-	public void waitForElementToBeClickable(String elementType,String identifier)
+	public void waitForElementToBeClickable(String elementType,String identifier,Report report)
 	{
 		try {
 			WebDriverWait wait=new WebDriverWait(driver, 60);
@@ -163,10 +178,11 @@ public class Utility {
 				wait.until(ExpectedConditions.elementToBeClickable(By.id(identifier)));
 			else if(elementType.equalsIgnoreCase("xpath"))
 				wait.until(ExpectedConditions.elementToBeClickable(By.xpath(identifier)));
-	}
+				}
 	catch (Exception e) {
 		e.printStackTrace();
 		Assert.assertTrue(false, e.getMessage());
+		report.extentReportFail(e.getMessage());
 	}
 		
 		}
@@ -175,6 +191,9 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable to pick random values
+	 * Attribute: elementType- Element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 * 			  report- Class object of Report to generate extent report
 	 */
 	public void picktRandomValue(String elementType,String identifier,Report report)
 	{
@@ -206,10 +225,10 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable to verify if element is present
+	 * Attribute: property- xpath value of the element to be identified 
 	 */
 	public boolean verifyElement(String property) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 		boolean present = true;
 		try {
 			driver.findElement(By.xpath(property));
@@ -225,21 +244,35 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable method to scroll till we find the obj
+	 * Attribute:property- xpath value of the element to be identified
+	 * 			 report- Class object of Report to generate extent report
+	 * 
 	 */
 	
-	public void scrollToElement(String property) {
+	public void scrollToElement(String property,Report report) {
 		int count=0;
+		try {
 		while (true) {
 			if (verifyElement(property)) {
+				report.extentReportPass("Element visible");
 				break;
 			}
 			scrollFromTopToBottom();
 			count++;
 			if(count>10)
 				Assert.assertTrue(false, "Element Not Visible");
+					}
+			}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+			report.extentReportFail(e.getMessage());			
 		}
+		
+		
+		
 	}
-	
+			
 	/**
 	 *@author Sukanya
 	 * Description- Reusable to scroll fully from top to bottom of the screen
@@ -270,6 +303,9 @@ public class Utility {
 	/**
 	 *@author Sukanya
 	 * Description- Reusable method to compare two products
+	 * Attribute: smallString-String value to be compared with
+	 * 			  bigString- String value to be compared in
+	 * 			  report- Class object of the Report class for generating extent report
 	 */
 	
 	public void stringContains(String smallString,String bigString,Report report)
@@ -283,11 +319,33 @@ public class Utility {
 		else
 		{
 			Assert.assertTrue(false, "String comparison Failed expected:"+bigString+" contains "+smallString );
-			report.extentReportPass("String match Failed");
+			report.extentReportFail("String match Failed");
 			
 		}
 	}
 	
+	/**
+	 *@author Sukanya
+	 * Description- Reusable method for implicit wait
+	 * @throws InterruptedException 
+	 * Attribute:elementType- element type String passed is an id or xpath
+	 * 			  identifier- unique element identifier
+	 */
+	public void clickAndWait(String elementType,String identifier) throws InterruptedException {
+	
+		for(int i=0;i<60;i++){
+			try {
+		WebDriverWait wait= new WebDriverWait(driver,10);
+		if(elementType.equalsIgnoreCase("id"))
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(identifier)));
+		if(elementType.equalsIgnoreCase("xpath"))
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(identifier)));
+		break;
+			}catch(Exception e) {Thread.sleep(5000);
+			}
+			
+	}
+	}
 	
 	}
 

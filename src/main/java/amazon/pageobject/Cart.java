@@ -14,11 +14,13 @@ public class Cart extends Utility {
 	/*
 	 * Description: Method to Compare Cart product details 
 	 * Created By:Sukanya
+	 * Attributes: report - class object for generating HTML report and logging
+	 * 				prodName - Product Name retrieved from product details page for comparison 
 	 */
 	public void compareProductDetails(String prodName, Report report)
 	{
 
-		waitForElementToBeClickable("xpath", productName);
+		waitForElementToBeClickable("xpath", productName,report);
 		String uiProdName=getText("xpath",productName,report);
 		System.out.println("uiProdName"+uiProdName);
 		StringTokenizer st=new StringTokenizer(uiProdName, "...");
@@ -33,6 +35,7 @@ public class Cart extends Utility {
 	/*
 	 * Description: Method to navigate to checkout page
 	 * Created By:Sukanya
+	 * Attribute: report - class object for generating HTML report and logging
 	 */
 	public void navigateToCheckout( Report report)
 	{

@@ -19,23 +19,17 @@ public class Runner extends Utility {
 	
 	Report extentReport;
 	/*
-	 * @author=sukanya
 	 * Description-Creating constructor for initializing the class variables and the parent class
+	 * Created By:Sukanya 
 	 */
 	public Runner() {
 		super();
 	}
 	
-	
-	/*public void killAllNodes() throws IOException, InterruptedException
-	{
-	//taskkill /F /IM node.exe
-		Runtime.getRuntime().exec("taskkill /F /IM node.exe");
-		Thread.sleep(3000);
-		
-	}*/
-	
-	
+	/*
+	 * Description: To initialize driver and Reporting
+	 * Created By: Sukanya 
+	 */
 	@BeforeTest
 	public void driverInitialize() {
 		Runner run=new Runner();
@@ -51,7 +45,7 @@ public class Runner extends Utility {
 	 */
 
 	@Test
-	public void TestApp() {
+	public void TestApp() throws Exception {
 		
 		ReadExcelData readExcel=new ReadExcelData();
 		readExcel.excelRead("AmazonTest");
@@ -67,6 +61,7 @@ public class Runner extends Utility {
 	/*
 	 * Description: After Method to tear down the driver and check execution status
 	 * Created By: Sukanya
+	 * Attribute: result - Class object of ITestResult to fetch the overall execution status
 	 */
 	
 	
@@ -77,7 +72,6 @@ public class Runner extends Utility {
 		if(ITestResult.FAILURE==result.getStatus())
 		{
 			extentReport.extentReportFail(result.getThrowable().getMessage());
-			//extentReport.logger.fail(result.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
 		}
 		driver.quit();
 		extentReport.report.flush();

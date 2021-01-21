@@ -64,6 +64,7 @@ public class Report extends Utility{
 	/*
 	 * Description: Reusable function to Add passed step in report
 	 * Created By: Sukanya
+	 * Attribute: desc- Description to be printed in the report
 	 * 
 	 */
 
@@ -73,7 +74,6 @@ public class Report extends Utility{
 		try {
 			this.logger.pass(desc, MediaEntityBuilder.createScreenCaptureFromPath(tempSS).build());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -81,7 +81,7 @@ public class Report extends Utility{
 	/*
 	 * Description: Reusable function to Add Failed step in report
 	 * Created By: Sukanya  
-	 * Description to be printed in the report
+	 * Attribute: desc-Description to be printed in the report
 	 */
 
 	public void extentReportFail(String desc) 
@@ -90,7 +90,6 @@ public class Report extends Utility{
 		try {
 			this.logger.fail(desc,MediaEntityBuilder.createScreenCaptureFromPath(tempSS).build());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

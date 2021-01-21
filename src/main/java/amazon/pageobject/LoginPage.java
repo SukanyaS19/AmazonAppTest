@@ -8,14 +8,15 @@ public class LoginPage extends Utility {
 	String appLogo="android.widget.ImageView/[@resource-id='com.amazon.mShop.android.shopping:id/sso_splash_logo']";
 	String signIn="//*[@text='Skip sign in']";
 	/*
-	 * @author dell
+	 * @author Sukanya 
 	 * Decription:Login to the app
+	 * Attributes: report - class object for generating HTML report and logging
 	 */
 	
 	public void login(Report report)
 	{
-		//waitForElementToBeVisible("xpath", appLogo);
-		waitForElementToBeClickable("xpath",signIn);
+		
+		waitForElementToBeClickable("xpath",signIn,report);
 		clickElement("xpath", signIn,report);
 	}
 }
