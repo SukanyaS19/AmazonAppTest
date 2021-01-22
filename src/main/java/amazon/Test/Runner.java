@@ -45,7 +45,7 @@ public class Runner extends Utility {
 	 */
 
 	@Test
-	public void TestApp() throws Exception {
+	public void TestApp() {
 		
 		ReadExcelData readExcel=new ReadExcelData();
 		readExcel.excelRead("AmazonTest");

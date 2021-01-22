@@ -38,7 +38,7 @@ public class Report extends Utility{
 			fileInputStreamReader = new FileInputStream(sourceFile);
 			byte[] bytes = new byte[(int)sourceFile.length()];
 			fileInputStreamReader.read(bytes);       
-			screenShotDestination= "/Reports/screenshots/"+System.currentTimeMillis()+".jpeg";
+			screenShotDestination= System.getProperty("user.dir")+"/Reports/screenshots/"+System.currentTimeMillis()+".jpeg";
 			File destination = new File(screenShotDestination);
 			FileUtils.copyFile(sourceFile, destination);
 

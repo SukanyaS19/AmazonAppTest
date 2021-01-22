@@ -27,7 +27,7 @@ public class ReadExcelData extends Utility {
 			String testData = System.getProperty("user.dir");
 			Properties prop=new Properties();
 			prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\resource\\java\\propertiesFile\\config.properties");
-			fs = new FileInputStream(testData + prop.getProperty("TestdataPath"));
+			fs = new FileInputStream(testData + prop.getProperty("user.dir"));
 			wb = new XSSFWorkbook(fs);
 		}catch (Exception e) {
 			e.printStackTrace();

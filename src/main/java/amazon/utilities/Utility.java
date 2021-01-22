@@ -253,13 +253,13 @@ public class Utility {
 		try {
 		while (true) {
 			if (verifyElement(property)) {
-				report.extentReportPass("Element visible");
+				report.extentReportPass("Element visible post scrolling");
 				break;
 			}
 			scrollFromTopToBottom();
 			count++;
 			if(count>10)
-				Assert.assertTrue(false, "Element Not Visible");
+				Assert.assertTrue(false, "Element is Not Visible post scrolling");
 					}
 			}
 		
