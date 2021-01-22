@@ -25,7 +25,6 @@ public class LandingPage extends Utility {
 		waitForElementToBeClickable("xpath", searchBox,report);
 		sendKeysElement("xpath", searchBox,readExcel.getValue("SearchText"),report);
 		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-
 		picktRandomValue("xpath", searchedProductList, report);	
 	}
 	

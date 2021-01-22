@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 19 00:08:01 IST 2021</td>
+<td>Started on:</td><td>Fri Jan 22 13:17:33 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>52 seconds (52995 ms)</td>
+<tr><td>Total time:</td><td>65 seconds (65061 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,9 +76,20 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='amazon.Test.Runner.TestApp()'><b>TestApp</b><br>Test class: amazon.Test.Runner</td>
-<td><div><pre>java.lang.ClassCastException: class org.openqa.selenium.By$ById cannot be cast to class org.openqa.selenium.WebElement (org.openqa.selenium.By$ById and org.openqa.selenium.WebElement are in unnamed module of loader &apos;app&apos;)
-	at amazon.utilities.Utility.waitForElementToBeVisible(Utility.java:149)
-	at amazon.pageobject.LandingPage.selectProduct(LandingPage.java:27)
+<td><div><pre>java.lang.AssertionError: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DELL-PC&apos;, ip: &apos;192.168.0.110&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: D:\amazon\src\Amazon_shoppi..., appActivity: com.amazon.mShop.home.HomeA..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, databaseEnabled: false, desired: {app: D:\amazon\src\Amazon_shoppi..., appActivity: com.amazon.mShop.home.HomeA..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, deviceName: Android Device, platformName: android}, deviceApiLevel: 29, deviceManufacturer: HMD Global, deviceModel: Nokia 8.1, deviceName: PNXID18121001766, deviceScreenDensity: 420, deviceScreenSize: 1080x2246, deviceUDID: PNXID18121001766, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 86, takesScreenshot: true, viewportRect: {height: 1948, left: 0, top: 86, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: c1d673b0-a5cd-4dbd-9982-4292ebd7e6de
+*** Element info: {Using=xpath, value=//*[contains(@resource-id,&apos;add-to-cart-button&apos;)]} expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at amazon.utilities.Utility.verifyElement(Utility.java:239)
+	at amazon.utilities.Utility.scrollToElement(Utility.java:256)
+	at amazon.pageobject.AddProduct.getProductDetails(AddProduct.java:24)
 	at amazon.Test.Runner.TestApp(Runner.java:55)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -108,10 +119,21 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1989826789", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1989826789'><pre>java.lang.ClassCastException: class org.openqa.selenium.By$ById cannot be cast to class org.openqa.selenium.WebElement (org.openqa.selenium.By$ById and org.openqa.selenium.WebElement are in unnamed module of loader &apos;app&apos;)
-	at amazon.utilities.Utility.waitForElementToBeVisible(Utility.java:149)
-	at amazon.pageobject.LandingPage.selectProduct(LandingPage.java:27)
+</pre></div><a href='#' onClick='toggleBox("stack-trace20945625", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace20945625'><pre>java.lang.AssertionError: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DELL-PC&apos;, ip: &apos;192.168.0.110&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: D:\amazon\src\Amazon_shoppi..., appActivity: com.amazon.mShop.home.HomeA..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, databaseEnabled: false, desired: {app: D:\amazon\src\Amazon_shoppi..., appActivity: com.amazon.mShop.home.HomeA..., appPackage: com.amazon.mShop.android.sh..., automationName: uiautomator2, deviceName: Android Device, platformName: android}, deviceApiLevel: 29, deviceManufacturer: HMD Global, deviceModel: Nokia 8.1, deviceName: PNXID18121001766, deviceScreenDensity: 420, deviceScreenSize: 1080x2246, deviceUDID: PNXID18121001766, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 86, takesScreenshot: true, viewportRect: {height: 1948, left: 0, top: 86, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: c1d673b0-a5cd-4dbd-9982-4292ebd7e6de
+*** Element info: {Using=xpath, value=//*[contains(@resource-id,&apos;add-to-cart-button&apos;)]} expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at amazon.utilities.Utility.verifyElement(Utility.java:239)
+	at amazon.utilities.Utility.scrollToElement(Utility.java:256)
+	at amazon.pageobject.AddProduct.getProductDetails(AddProduct.java:24)
 	at amazon.Test.Runner.TestApp(Runner.java:55)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
@@ -142,8 +164,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>16</td>
-<td>amazon.Test.Runner@550ee7e5</td></tr>
+<td>37</td>
+<td>amazon.Test.Runner@1a4013</td></tr>
 </table><p>
 </body>
 </html>

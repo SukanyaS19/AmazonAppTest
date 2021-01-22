@@ -5,6 +5,7 @@
     <classes>
       <class name="amazon.Test.Runner">
         <methods>
+          <include name="afterMethod"/>
           <include name="TestApp"/>
           <include name="driverInitialize"/>
         </methods>

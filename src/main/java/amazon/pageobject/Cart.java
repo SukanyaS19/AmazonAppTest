@@ -22,10 +22,7 @@ public class Cart extends Utility {
 
 		waitForElementToBeClickable("xpath", productName,report);
 		String uiProdName=getText("xpath",productName,report);
-		System.out.println("uiProdName"+uiProdName);
 		StringTokenizer st=new StringTokenizer(uiProdName, "...");
-		System.out.println("prodName"+prodName);
-		System.out.println("uiProdName"+uiProdName);
 		stringContains(st.nextToken(),prodName,report);
 		String elemCount=getText("xpath", productCount,report);
 		stringContains(elemCount, "1",report);

@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,7 +44,7 @@ public class Utility {
 	 */
 	public void driverinit(Report extentReport) {
 		try {
-		prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\test\\java\\propertiesFile\\global.properties");
+		prop=loadPropertyFile(System.getProperty("user.dir")+"\\src\\resource\\java\\propertiesFile\\global.properties");
 		File appDir = new File("src");
 	    File app = new File(appDir, prop.getProperty("appName"));
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME,prop.getProperty("device"));
@@ -69,7 +68,7 @@ public class Utility {
 	 */
 	public Properties loadPropertyFile(String Path) {
 		try {
-			FileInputStream fis =new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\propertiesFile\\global.properties");
+			FileInputStream fis =new FileInputStream(System.getProperty("user.dir")+"\\src\\resource\\java\\propertiesFile\\global.properties");
 			
 				prop.load(fis);
 			} catch (IOException e) {
@@ -326,27 +325,34 @@ public class Utility {
 	
 	/**
 	 *@author Sukanya
-	 * Description- Reusable method for implicit wait
-	 * @throws InterruptedException 
+	 * Description- Reusable method for implicit wait 
 	 * Attribute:elementType- element type String passed is an id or xpath
 	 * 			  identifier- unique element identifier
 	 */
-	public void clickAndWait(String elementType,String identifier) throws InterruptedException {
+	public void clickAndWait(String elementType,String identifier,Report report)  {
 	
+		try {
 		for(int i=0;i<60;i++){
-			try {
 		WebDriverWait wait= new WebDriverWait(driver,10);
 		if(elementType.equalsIgnoreCase("id"))
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(identifier)));
 		if(elementType.equalsIgnoreCase("xpath"))
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(identifier)));
+		report.extentReportPass(identifier +"is visible");
 		break;
-			}catch(Exception e) {Thread.sleep(5000);
+			}
+		}
+		catch(Exception e) {
+				e.printStackTrace();
+				report.extentReportFail(e.getMessage()); 
+					
+				}
 			}
 			
 	}
-	}
 	
-	}
+	
+	
+
 
 

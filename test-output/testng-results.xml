@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-21T21:43:03 IST" name="Suite" finished-at="2021-01-21T21:45:54 IST" duration-ms="170287">
+  <suite started-at="2021-01-22T13:23:10 IST" name="Suite" finished-at="2021-01-22T13:24:52 IST" duration-ms="102382">
     <groups>
     </groups>
-    <test started-at="2021-01-21T21:43:03 IST" name="Test" finished-at="2021-01-21T21:45:54 IST" duration-ms="170287">
+    <test started-at="2021-01-22T13:23:10 IST" name="Test" finished-at="2021-01-22T13:24:52 IST" duration-ms="102382">
       <class name="amazon.Test.Runner">
-        <test-method is-config="true" signature="driverInitialize()[pri:0, instance:amazon.Test.Runner@1cbb87f3]" started-at="2021-01-21T21:43:04 IST" name="driverInitialize" finished-at="2021-01-21T21:44:04 IST" duration-ms="60958" status="PASS">
+        <test-method is-config="true" signature="driverInitialize()[pri:0, instance:amazon.Test.Runner@1a4013]" started-at="2021-01-22T13:23:10 IST" name="driverInitialize" finished-at="2021-01-22T13:23:34 IST" duration-ms="23879" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverInitialize -->
-        <test-method signature="TestApp()[pri:0, instance:amazon.Test.Runner@1cbb87f3]" started-at="2021-01-21T21:44:05 IST" name="TestApp" finished-at="2021-01-21T21:45:51 IST" duration-ms="105864" status="PASS">
+        <test-method signature="TestApp()[pri:0, instance:amazon.Test.Runner@1a4013]" started-at="2021-01-22T13:23:34 IST" name="TestApp" finished-at="2021-01-22T13:24:50 IST" duration-ms="76442" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestApp -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:amazon.Test.Runner@1cbb87f3]" started-at="2021-01-21T21:45:51 IST" name="afterMethod" finished-at="2021-01-21T21:45:54 IST" duration-ms="2958" status="PASS">
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:amazon.Test.Runner@1a4013]" started-at="2021-01-22T13:24:50 IST" name="afterMethod" finished-at="2021-01-22T13:24:52 IST" duration-ms="1947" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TestApp status=SUCCESS method=Runner.TestApp()[pri:0, instance:amazon.Test.Runner@1cbb87f3] output={null}]]]>
+                <![CDATA[[TestResult name=TestApp status=SUCCESS method=Runner.TestApp()[pri:0, instance:amazon.Test.Runner@1a4013] output={null}]]]>
               </value>
             </param>
           </params>
